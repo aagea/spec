@@ -1,58 +1,51 @@
 # Open Application Model Specification
 
-|![notification](assets/bell-outline-badge.svg) What is NEW!|
-|------------------|
-|May 18th, 2020. [Crossplane](https://github.com/crossplane/crossplane) becomes the standard Kubernetes implementation of OAM spec!|
-|Mar 27th, 2020. OAM v1.0.0-alpha.2 is **RELEASED**! The new spec is highly extensible and native to Kubernetes runtime. Check the spec and [What's new in OAM v1alpha2](https://speakerdeck.com/resouer/whats-new-in-oam-v1alpha2-spec) for more detail!|
-|Mar 26th, 2020. A proof-of-concept project named AWS ECS for OAM is published! Check [the AWS Labs repo ](https://github.com/awslabs/amazon-ecs-for-open-application-model) and have fun with developer centric experience with OAM + Fargate!|
+[![Gitter](https://badges.gitter.im/oam-dev/community.svg)](https://gitter.im/oam-devcommunity?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![License: MIT](https://img.shields.io/badge/License-OWF-yellow)](https://github.com/oam-dev/spec/blob/master/LICENSE)
+[![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/oam-dev/spec)](https://www.tickgit.com/browse?repo=github.com/oam-dev/spec)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/oam_dev.svg?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=oam_dev)
 
-Open Application Model is a platform-agnostic specification for building cloud native applications.
+Open Application Model is a runtime-agnostic specification for building cloud native application platforms.
 
-Focused on separating concerns of development and operation needs, _Open Application Model_ brings modular, extensible, and portable design to building and delivering applications on different platforms.
+Focused on **application** rather than container or orchestrator, _Open Application Model_ brings modular, extensible, and portable design for building application centric platforms on any runtime systems like Kubernetes, cloud, or IoT devices.
 
-> **NOTICE:** *This repository is unstable and open to contributions.* The specification is under development and could adopt breaking changes in the future. Interested in contributing? Take a look at the issues! We're looking for more great ideas on how to model cloud native applications.
+> **NOTICE:** The current working draft of OAM specification (0.2.x release) is under pre-beta release, which means the specification is still under development but will keep backward compatibility for any further change.
 
 ## Introduction
 
-![How it works][how-it-works]
+Developers think in terms of application architecture, not of infrastructure.
 
-When it comes to application development and deployment, we think it is important to distinguish between the parts that developers are responsible for, and the parts that operations is responsible for. Otherwise, if these roles get muddled, it would result in communications mishaps, bugs, or even
-service outages.
+Open Application Model defines a number of standard but extensible abstractions to model micro-service applications by natural, with operation configurations as part of the application definition. This enables platform builders to create platforms around a unified model, with app-centric mindset by default, and essentially changes building platforms into developing modularized components and traits for the application. 
 
-_Open Application Model_ attempts to solve this problem by modeling the application according to the
-roles responsible for building and running apps and operating infrastructure.
+![How it works](assets/how-it-works.png)
 
-* _Developers_ are responsible for describing what a microservice or component does,
-  and _how_ it can be configured. They are the domain experts on the code.
-* _Application Operators_ are responsible for configuring the runtime aspects of
-  one or more of these microservices. They are the domain experts on the
-  platform.
-* _Infrastructure Operators_ are responsible for setting up and maintaining the
-  infrastructure within which applications run. They are the domain
-  experts on the low-level details.
+### Why Open Application Model?
 
-For more details and user stories, see [introduction.md](./introduction.md).
+For platform builders who create the application platform:
+- Higher level abstractions - building developer facing platforms by default.
+- Highly extensible - bring your own abstractions or capabilities.
+- Clarity and manageability - leveraging modularized and re-usable building blocks.
+- No capability lock-in - decoupled abstractions and implementation.
+
+For end users of the OAM based platform:
+- Think applications, not containers or orchestrators.
+- Build modern applications by default.
+- Operation is part of the application lifecycle.
+
+### Team-centric and separation of concerns
+
+Open Application Model proposed a clear separation of concerns between the parts that developers are responsible for, and the parts that operators and platform engineers are responsible for. For more details, see [introduction.md](./introduction.md).
+
+## Read the specification
+
+|                                | Latest Release |    Working Draft                  |
+| :----------------------------: | :------------: |:--------------------------------: |
+| **Core Specification:**        |
+| OAM Specification              | [v0.2.1](https://github.com/oam-dev/spec/blob/v0.2.1/SPEC_LATEST_STABLE.md) |  [v0.2.2-WD](SPEC.md)  |
 
 ## See it in action
 
-[Crossplane](https://github.com/crossplane/crossplane) is the implementation of the Open Application Model specification for Kubernetes. To get started with an example of the Open Application Model, follow the guide to run applications on [Crossplane](https://crossplane.io/docs/v0.11/getting-started/run-applications.html).
-
-## The Specification
-
-The specification convention adopts [Kubernetes Resource Model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/resource-management.md) which we believe will become the standard interface for the majority of platforms in the future.
-
-[Notational Conventions](notational_convention.md)
-
-  1. [Purpose and Goals](1.purpose_and_goals.md)
-  2. [Overview and Terminology](2.overview_and_terminology.md)
-  3. [Workload Types](3.workload.md)
-  4. [The Component Model](4.component.md)
-  5. [Application Scopes](5.application_scopes.md)
-  6. [Traits](6.traits.md)
-  7. [Application Configuration](7.application_configuration.md)
-  8. [Practical Considerations](8.practical_considerations.md)
-  9. [Design Principles](9.design_principles.md)
-
+[OAM Kubernetes Runtime](https://github.com/crossplane/oam-kubernetes-runtime) is the officially maintained OAM plugin for Kubernetes.
 
 ## Community
 
@@ -82,8 +75,6 @@ One of the easiest ways to contribute is to participate in discussions. There ar
 | IM Channel      | https://gitter.im/oam-dev/ |
 | Twitter      | [@oam_dev](https://twitter.com/oam_dev) |
 
-[how-it-works]: assets/how-it-works.png
-
 ### Resources
 
-Come find community blogs and conference talks about OAM in [community/talks_and_blogs.md](./community/talks_and_blogs.md).
+Come find community blogs and conference talks about OAM in [community talks and blogs](./community/talks_and_blogs.md).
